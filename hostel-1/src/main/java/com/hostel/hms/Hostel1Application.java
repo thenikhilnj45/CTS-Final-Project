@@ -12,6 +12,7 @@ public class Hostel1Application {
 
 	public static void main(String[] args) {
 SpringApplication.run(Hostel1Application.class, args);
+//line added by nikhil jadhav.
 		
 
 	    }
