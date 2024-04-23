@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rooms</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            /* Add a gradient background */
+            background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+        }
+        .table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Room Status</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>RoomNo</th>
+                    <th>Room Type</th>
+                    <th>Capacity</th>
+                    <th>Availability</th>
+                    <th>Fees</th>
+                    <th>View Student</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="room : ${rooms}">
+                    <td th:text="${room.roomno}"></td>
+                    <td th:text="${room.roomtype}"></td>
+                    <td th:text="${room.capacity}"></td>
+                    <td th:text="${room.availability}"></td>
+                    <td th:text="${room.fees}"></td>
+                    <td><a th:href="@{/students/room/{roomno}(roomno=${room.roomno})}" class="btn btn-primary">View Students</a></td>      
+                    <td><a th:href="@{/room/{roomno}(roomno=${room.roomno})}" class="btn btn-primary">Edit</a></td>
+                    <td><a th:href="@{/room/delete/{roomno}(roomno=${room.roomno})}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/room/new}" class="btn btn-success">Register New Room</a>
+        <a href="/hms" class="btn btn-secondary">Home</a>
+    </div>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Rising Hostel(RH)</span>
+    </div>
+</footer>
+
+</body>
+</html>

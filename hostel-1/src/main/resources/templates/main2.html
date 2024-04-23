@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hostel Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(192, 192, 192);
+            background-size: cover;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .navbar-brand img {
+            height: 30px;
+            width: auto;
+        }
+        
+    </style>
+</head>
+<body>
+   <h1><center th:text="${error}"></center></h1>
+   
+   <a th:href="@{/}">Home</a>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© THE NIKHIL JADHAV HOSTEL'S</span>
+    </div>
+</footer>
+</body>
+</html>

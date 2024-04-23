@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Complaints/FeedBack</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <style>
+        body {
+            background: rgba(255, 255, 255, 0.8);
+            background-size: cover;
+            background-image: url('css/hms2.jpg');
+            
+        }
+        .from-group {
+            
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            opacity:0.9;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Register New FeedBack</h2>
+     <form th:action="@{/feedbacks}" th:object="${feedback}" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" th:field="*{name}" >
+        <small th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></small>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" th:field="*{email}" >
+        <small th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></small>
+    </div>
+    <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea id="feedback" name="feedback" class="form-control" th:field="*{feedback}" rows="4" ></textarea>
+        <small th:if="${#fields.hasErrors('feedback')}" class="text-danger" th:errors="*{feedback}"></small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    </div>
+</body>
+</html>

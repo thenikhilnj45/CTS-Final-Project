@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Room</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            /* Add a gradient background */
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+        }
+        .container {
+            /* Add some padding and center align text */
+            padding: 2em;
+            text-align: center;
+        }
+        .form-group {
+            /* Add some margin to form elements for better spacing */
+            margin-bottom: 1.5em;
+        }
+        .btn-primary {
+            /* Change the color of the primary button */
+            background-color: #ff5e62;
+            border-color: #ff5e62;
+        }
+        .btn-secondary {
+            /* Change the color of the secondary button */
+            background-color: #ff9966;
+            border-color: #ff9966;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Register New Room</h2>
+        <form th:action="@{/room/update}" th:object="${room}" method="post">
+            <div class="form-group">
+                <label for="roomtype">Room Type:</label>
+                <input type="text" id="roomtype" th:field="*{roomtype}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity:</label>
+                <input type="number" id="capacity" th:field="*{capacity}" class="form-control" />
+            </div>
+                <div class="form-group">
+                <label for="fees">Fees:</label>
+                <input type="number" id="fees" th:field="*{fees}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="availability">Availability:</label>
+                <input type="text" id="availability" th:field="*{availability}" class="form-control" />
+            </div>
+            <input type="hidden" id="roomno" th:field="*{roomno}" />
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/hms" class="btn btn-secondary">Home</a>
+        </form>
+    </div>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Rising Hostel(RH)</span>
+    </div>
+</footer>
+
+</body>
+</html>

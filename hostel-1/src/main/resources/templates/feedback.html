@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rooms</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            /* Add a gradient background */
+            background-size: cover;
+            
+                        
+            background-color: skyblue;
+        }
+        .table {
+            margin-top: 30px;
+            background-size: cover;
+            background : grey;
+            
+            
+        }
+        .thead {
+        background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">FEEDBACK</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>FeedBack</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="feedback : ${feedbacks}">
+                    <td th:text="${feedback.name}"></td>
+                    <td th:text="${feedback.email}"></td>
+                    <td th:text="${feedback.feedback}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/feedback/new}" class="btn btn-lg btn-primary btn-block">Register New Feedback</a>
+        <a href="/hms" class="btn btn-lg btn-secondary btn-block">Home</a>
+    </div>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 THE NIKHIL JADHAV HOSTEL'S</span>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+2024-04-20T03:11:28.509+05:30  WARN 10720 --- [hostel-1] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h40m17s984ms954µs700ns).
+2024-04-20T07:22:54.246+05:30  WARN 10720 --- [hostel-1] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h11m36s702ms158µs).
+2024-04-20T08:05:57.264+05:30  WARN 10720 --- [hostel-1] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s493ms274µs400ns).
+2024-04-20T10:11:30.136+05:30  WARN 10720 --- [hostel-1] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h3m2s823ms590µs).

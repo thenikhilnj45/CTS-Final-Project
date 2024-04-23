@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hostel Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(147, 108, 125);
+            background-size: cover;
+            background-image: url('css/hms2.jpg');
+            
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            opacity:0.9;
+        }
+        .navbar-brand img {
+            height: 30px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Hostel Management System
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/roommain}">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/stdmain}">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/feedmain}">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/logout}">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div id="home" class="section">
+            <h1><center>Welcome to the Hostel Management System</center></h1>
+            <p><center>This is a system designed to manage all aspects of a hostel, including room allocation, student registration, and more.</center></p>
+        </div>
+        <div id="rooms" class="section">
+            <h2><center>ROOMS</center></h2>
+            <button class="w-100 btn btn-lg btn-outline-secondary"><a class="text-dark" th:href="@{/room/new}">Create Room</button>
+            <button class="w-100 btn btn-lg btn-outline-secondary"><a class="text-dark" th:href="@{/rooms}">Display Room</button>
+            
+        </div>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

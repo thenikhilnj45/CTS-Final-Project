@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('css/hms3.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity:0.9;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            border-radius: 15px;
+        }
+        .navbar-brand img {
+            height: 30px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Hostel Management System
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/roommain}">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/stdmain}">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/feedmain}">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/logout}">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><center>Student Site</center></h5>
+                        <p class="card-text"><center>Some quick example text to build on the card title and make up the bulk of the card's content.</center></p>
+                        <a th:href="@{/stdmain}" class="btn btn-lg btn-outline-primary btn-block">Student</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><center>Room Site</center></h5>
+                        <p class="card-text"><center>Some quick example text to build on the card title and make up the bulk of the card's content.</center></p>
+                        <a  th:href="@{/roommain}" class="btn btn-lg btn-outline-primary btn-block">Room</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><center>Feedback Site</center></h5>
+                        <p class="card-text"><center>Some quick example text to build on the card title and make up the bulk of the card's content.</center></p>
+                        <a th:href="@{/feedmain}" class="btn btn-lg btn-outline-primary btn-block">Feedback</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+S

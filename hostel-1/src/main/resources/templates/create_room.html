@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Room</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+
+</head>
+<body>
+
+<h2 align="center">Register New Room</h2>
+<form th:action="@{/rooms}" th:object="${room}" method="post">
+    <label for="roomno">Room No:</label>
+    <input type="number" id="roomno" th:field="*{roomno}" /><br/>
+    
+    <label for="roomtype">Room Type:</label>
+    <input type="text" id="roomtype" th:field="*{roomtype}" /><br/>
+    
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" th:field="*{capacity}" /><br/>
+    
+    <label for="availability">Availability:</label>
+    <input type="text" id="availability" th:field="*{availability}" /><br/>
+    
+    <button type="submit">Register</button>
+    <a href="/hms">Home</a>
+</form>
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Room</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .gradient-bg {
+            /* Add a gradient background */
+background: linear-gradient(to right, #85c1e9, #2e86c1);        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <div class="container">
+        <h2 class="text-center">Register New Room</h2>
+        <form th:action="@{/rooms}" th:object="${room}" method="post">
+            <div class="form-group">
+                <label for="roomno">Room No:</label>
+                <input type="number" id="roomno" th:field="*{roomno}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="roomtype">Room Type:</label>
+                <input type="text" id="roomtype" th:field="*{roomtype}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity:</label>
+                <input type="number" id="capacity" th:field="*{capacity}" class="form-control" />
+            </div>
+             <div class="form-group">
+                <label for="fees">Fees:</label>
+                <input type="number" id="fees" th:field="*{fees}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="availability">Availability:</label>
+                <input type="text" id="availability" th:field="*{availability}" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a href="/hms" class="btn btn-secondary">Home</a>
+        </form>
+    </div>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Rising Hostel(RH)</span>
+    </div>
+</footer>
+
+</body>
+</html>
+
+ 

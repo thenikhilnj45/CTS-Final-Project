@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            /* Add a gradient background */
+            background: linear-gradient(to right, rgb(118, rgb(173, 148, 170)2), #5b86e5);
+        }
+        .table {
+            margin-top: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="/hms" class="btn btn-secondary">Home</a>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-center text-white bg-primary">
+                <h2>Student Details</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Student Id</th>
+                                <th>Address</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Guardian Name</th>
+                                <th>Guardian Mobile</th>
+                                <th>Guardian Address</th>
+                                <th>Room Number</th>
+                                <th>Date of Joining</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="student : ${students}">
+                                <td th:text="${student.name}"></td>
+                                <td th:text="${student.stuid}"></td>
+                                <td th:text="${student.address}"></td>
+                                <td th:text="${student.mobile}"></td>
+                                <td th:text="${student.email}"></td>
+                                <td th:text="${student.gname}"></td>
+                                <td th:text="${student.gmobile}"></td>
+                                <td th:text="${student.gaddress}"></td>
+                                <td th:text="${student.roomno}"></td>
+                                <td th:text="${student.doj}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add a footer -->
+   <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Rising Hostel(RH)</span>
+    </div>
+</footer>
+
+</body>
+
+</html>
+ 

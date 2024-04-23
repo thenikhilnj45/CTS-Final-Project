@@ -1,0 +1,136 @@
+package com.hostel.hms.controller;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.hostel.hms.model.Room;
+import com.hostel.hms.model.Student;
+import com.hostel.hms.repo.RoomRepo;
+import com.hostel.hms.repo.StudentRepo;
+import com.hostel.hms.service.StudentService;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class StudentController {
+	@Autowired
+	private StudentRepo stdrepo;
+	@Autowired
+	private RoomRepo roomrepo;
+	@Autowired
+	private StudentService stdser;
+	
+//	@PostMapping("/students")
+//	public String saveMember(@Valid Student student,@PathVariable("roomno") int id) {
+//		Room room = roomrepo.findById(id).get();
+//		
+//		//Email.mail(student);
+//		stdrepo.save(student);
+//		return "redirect:/students";
+//
+//	}
+
+//	@PostMapping("/students")
+//	public String saveMember(@Valid Student student) {
+//	    Room room = roomrepo.findById(student.getRoomno()).orElseThrow();
+//	    int capacity = room.getCapacity();
+//	    if (capacity > 0) {
+//	        stdrepo.save(student);
+//	        room.setCapacity(capacity - 1);
+//	        roomrepo.save(room);
+//	        if (room.getCapacity() <= 0) {
+//	            room.setAvailability(false);
+//	            roomrepo.save(room);
+//	        }
+//	    }
+//	    return "redirect:/students";
+//	}
+	@PostMapping("/students")
+	public String saveMember(@Valid Student student ,Model model) {
+	    Room room = roomrepo.findById(student.getRoomno()).orElseThrow();
+	    int capacity = room.getCapacity();
+	    if (capacity > 0) {
+			//Email.mail(student);
+	        stdrepo.save(student);
+	        room.setCapacity(capacity - 1);
+	        roomrepo.save(room);
+	        if (room.getCapacity() <= 0) {
+	            room.setAvailability(false);
+	            roomrepo.save(room);
+	        }
+	    }
+	    return "redirect:/students";
+	    	}
+
+
+	@GetMapping("/students")
+	public String listMembers(@Valid Model model) {
+		model.addAttribute("students", stdrepo.findAll());
+		model.addAttribute(model);
+		System.out.println(stdrepo.findAll());
+		return "students";
+
+	}
+
+//	@GetMapping("/student/delete/{stuid}")
+//	public String deleteStudent(@PathVariable("stuid") int id) {
+//	    stdrepo.deleteById(id);
+//	    return "redirect:/students";
+//	}
+	
+
+
+	@GetMapping("/student/delete/{stuid}")
+	public String deleteStudent(@PathVariable("stuid") int id) {
+		Student student = stdrepo.findById(id).orElseThrow();
+	    Room room = roomrepo.findById(student.getRoomno()).orElseThrow();
+	    stdrepo.deleteById(id);
+	    room.setCapacity(room.getCapacity() + 1);
+	    room.setAvailability(true);
+	    roomrepo.save(room);
+	    return "redirect:/students";
+	}
+
+//	@GetMapping("/student/new")
+//	public String showCreateForm(@Valid Model model) {
+//		model.addAttribute("rooms", roomrepo.findAll());
+//		Student student = new Student();
+//		model.addAttribute("student", student);
+//		return "create_student";
+//
+//	}
+
+	@GetMapping("/student/new")
+	public String showCreateForm(Model model) {
+		List<Room> availableRooms = roomrepo.findAll().stream()
+		        .filter(room -> room.getCapacity() > 0)
+		        .collect(Collectors.toList());
+	    model.addAttribute("rooms",availableRooms);
+	    Student student = new Student();
+	    model.addAttribute("student", student);
+	    return "create_student";
+	}
+	
+	@GetMapping("/student/{stuid}")
+	public String showUpdateForm(@PathVariable("stuid") int id, Model model) {
+		Student student = stdrepo.findById(id).get();
+		model.addAttribute("student", student);
+		return "update_student";
+
+	}
+
+	@PostMapping("/student/update")
+	public String updateStudent(Student student) {
+		stdrepo.save(student);
+		return "redirect:/students";
+
+	}
+
+}

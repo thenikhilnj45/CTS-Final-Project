@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            /* Add a gradient background */
+            background: linear-gradient(to right, #bdc3c7, #2c3e50);
+        }
+        .container {
+            /* Add some padding and center align text */
+            padding: 2em;
+            text-align: center;
+        }
+        .form-group {
+            /* Add some margin to form elements for better spacing */
+            margin-bottom: 1.5em;
+        }
+        .btn-primary {
+            /* Change the color of the primary button */
+            background-color: #2c3e50;
+            border-color: #2c3e50;
+        }
+        .btn-secondary {
+            /* Change the color of the secondary button */
+            background-color: #bdc3c7;
+            border-color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Update Student Details</h2>
+        <form th:action="@{/student/update}" th:object="${student}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" th:field="*{age}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" th:field="*{gender}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" th:field="*{dob}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" th:field="*{address}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile" th:field="*{mobile}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="aadhar">Aadhar:</label>
+                <input type="text" id="aadhar" th:field="*{aadhar}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gname">Guardian's Name:</label>
+                <input type="text" id="gname" th:field="*{gname}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gmobile">Guardian's Mobile:</label>
+                <input type="tel" id="gmobile" th:field="*{gmobile}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gaddress">Guardian's Address:</label>
+                <input type="text" id="gaddress" th:field="*{gaddress}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="roomno">Room Number:</label>
+                <input type="number" id="roomno" th:field="*{roomno}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="doj">Date of Joining:</label>
+                <input type="date" id="doj" th:field="*{doj}" class="form-control" />
+            </div>
+            <input type="hidden" id="studentId" th:field="*{stuid}" />
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/hms" class="btn btn-secondary">Home</a>
+                    </form>
+    </div>
+     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Rising Hostel(RH)</span>
+    </div>
+</footer>
+
+</body>
+</html>

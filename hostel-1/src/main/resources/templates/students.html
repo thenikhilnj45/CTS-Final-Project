@@ -1,0 +1,110 @@
+
+ 
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            /* Add a gradient background */
+            background: rgba(255, 255, 255, 0.8);
+            background-image: url('css/hms2');
+        }
+        .table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="/hms" class="btn btn-secondary">Home</a>
+    <div class="container mt-5">
+        <h2 class="text-center text-primary">Primary Student Details</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Student Id</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student : ${students}">
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.stuid}"></td>
+                        <td th:text="${student.age}"></td>
+                        <td th:text="${student.gender}"></td>
+                        <td th:text="${student.dob}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container mt-5">
+    <h2 class="text-center text-primary">Secondary Student Details</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Aadhar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.address}"></td>
+                    <td th:text="${student.mobile}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td th:text="${student.aadhar}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Guardian Details</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Guardian Name</th>
+                    <th>Guardian Mobile</th>
+                    <th>Guardian Address</th>
+                    <th>Room Number</th>
+                    <th>Date of Joining</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.gname}"></td>
+                    <td th:text="${student.gmobile}"></td>
+                    <td th:text="${student.gaddress}"></td>
+                    <td th:text="${student.roomno}"></td>
+                    <td th:text="${student.doj}"></td>
+                    <td>
+  <a th:href="@{/student/{stuid}(stuid=${student.stuid})}">
+      <i class="bi bi-pencil-square" style="color:blue"></i>
+  </a>
+</td>
+<td>
+  <a th:href="@{/student/delete/{stuid}(stuid=${student.stuid})}">
+      <i class="bi bi-trash-fill" style="color:red"></i>
+  </a>
+</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+</body>
+</html>
+ 
